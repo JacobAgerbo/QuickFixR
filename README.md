@@ -6,7 +6,7 @@ Here I present QuickFixR. A small shiny based R packages, which makes R interact
 ## Introduction to dependencies
 
 The only thing you need is some data in .csv or .txt format. The package needs three types of table to function. 
-These includes:
+
 • **Count Table**
     A table which consists of columns as samples and rows as features of any kind, like bacteria (MAGs, AVSs or OTUs), genes, proteins or even metabolites!
     Columns names are sample names and rownames are set as feature IDs.
