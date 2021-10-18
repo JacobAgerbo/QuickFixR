@@ -380,7 +380,7 @@ differential_test <- function(MAE,
     de <- de[,which(colnames(de) %in% c("padj", "pValue"))]
     de$microbe <- rownames(de)
     rownames(de) <- seq_len(nrow(de))
-    de %<>% select(microbe, padj, pValue)
+    de %<>% dplyr::select(microbe, padj, pValue)
     
     # Return results
     output<-list(table = de, 
@@ -396,7 +396,7 @@ differential_test <- function(MAE,
 #test$table
 
 # Correlations
-## linear mixed effect models (lmes)
+## linear mixed effect models (lmes) ----
 
 lme_cor <- function(MAE,tax_level,feature=c(), exp_var, random_var, datatype = c("logcpm", "relabu", "counts"), tolerance){
   tax_level = tax_level
@@ -607,12 +607,12 @@ lme_cor_adj <- function(MAE,tax_level,feature=c(), exp_var, random_var, datatype
 #lme_cor_adj(MAE,tax_level = "genus", feature = "Fusarium", exp_var = "AGE",random_var = "GROUP", datatype = "relabu", tolerance = 10e-5)
 
 
-
+# bayesian ordination and regression analysis ----
 doBORAL <- function(MAE, tax_level, boral_covariates=c(), family, datatype = c("logcpm", "relabu", "counts"), MCMC.control=c("High","Low","DryRun"))
   {
   tax_level = tax_level
   #tax_level = "genus"
-  boral_covariates = boral_covariates
+  
   #boral_covariates = match.arg(boral_covariates, several.ok = TRUE)
   #boral_covariates = c("AGE","DISEASE","GROUP")
   family = family
@@ -650,7 +650,7 @@ doBORAL <- function(MAE, tax_level, boral_covariates=c(), family, datatype = c("
     } %>%  t() 
   
   X <- sam_table %>%
-    select(boral_covariates)
+    dplyr::select(boral_covariates)
 
 
   # change chars to nums ----
@@ -690,11 +690,11 @@ doBORAL <- function(MAE, tax_level, boral_covariates=c(), family, datatype = c("
 
 
 
-doBORAL_ord <- function(MAE, tax_level, boral_covariates=c(), family, datatype = c("logcpm", "relabu", "counts"), MCMC.control=c("High","Low","DryRun"))
+doBORAL_ord <- function(MAE, tax_level, boral_covariates = c(), family, datatype = c("logcpm", "relabu", "counts"), MCMC.control=c("High","Low","DryRun"))
 {
   tax_level = tax_level
   #tax_level = "genus"
-  boral_covariates = boral_covariates
+  #boral_covariates = boral_covariates
   #boral_covariates = match.arg(boral_covariates, several.ok = TRUE)
   #boral_covariates = c("AGE","DISEASE","GROUP")
   family = family
@@ -732,7 +732,7 @@ doBORAL_ord <- function(MAE, tax_level, boral_covariates=c(), family, datatype =
     } %>%  t() 
   
   X <- sam_table %>%
-    select(boral_covariates)
+    dplyr::select(boral_covariates)
   
   
   # change chars to nums ----
@@ -766,10 +766,10 @@ doBORAL_ord <- function(MAE, tax_level, boral_covariates=c(), family, datatype =
 
 
 # test
-#doBORAL(MAE, "genus", boral_covariates=c("AGE","DISEASE","SEX"), family = "normal", datatype ="logcpm", MCMC.control="DryRun")
+#doBORAL_ord(MAE, "genus", boral_covariates=c("AGE","DISEASE","SEX"), family = "normal", datatype ="logcpm", MCMC.control="DryRun")
 
 
-
+# shiny ----
 
 ## Next to do make shiny ui -server connection for BORAL (rendering)
 

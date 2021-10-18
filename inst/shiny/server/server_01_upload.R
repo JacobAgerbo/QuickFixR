@@ -157,7 +157,6 @@ updateTaxLevel <- function(session){
   updateSelectInput(session, "dimred_pca_taxlev", choices = tax.name, selected=tax.default)
   updateSelectInput(session, "dimred_pcoa_taxlev", choices = tax.name, selected=tax.default)
   updateSelectInput(session, "dimred_umap_taxlev", choices = tax.name, selected=tax.default)
-  updateSelectInput(session, "dimred_tsne_taxlev", choices = tax.name, selected=tax.default)
   
   # Testing
   updateSelectInput(session, "prev_taxlev", choices = tax.name, selected=tax.default)
