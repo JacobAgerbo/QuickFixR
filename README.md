@@ -7,14 +7,14 @@ Here I present QuickFixR. A small shiny based R packages, which makes R interact
 
 The only thing you need is some data in .csv or .txt format. The package needs three types of table to function. 
 These includes:
-• Count Table
+• **Count Table**
     A table which consists of columns as samples and rows as features of any kind, like bacteria (MAGs, AVSs or OTUs), genes, proteins or even metabolites!
     Columns names are sample names and rownames are set as feature IDs.
 
-• Classification Table    
+• **Classification Table **   
   A table which consists of columns as layers of feature information (like Kingdom, Phyla, Order, Class, Family, etc for taxonomy of MAGs). Rownames are set as       feature IDs (the same as the rownames in the count table). 
 
-• Sample Information Table
+• **Sample Information Table**
   I normally say this is the most important thing. Without sample information, fancy data just becomes useless stuff on your harddrive. Well! Columns as variables,   like sample types, Location, Instrument, batch, Tissue types, etc. 
   Rownames are sample names (the same as the colnames in the count table).
 
