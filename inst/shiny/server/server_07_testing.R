@@ -612,6 +612,7 @@ doBORAL <- function(MAE, tax_level, boral_covariates=c(), family, datatype = c("
   {
   tax_level = tax_level
   #tax_level = "genus"
+  boral_covariates = boral_covariates
   #boral_covariates = match.arg(boral_covariates, several.ok = TRUE)
   #boral_covariates = c("AGE","DISEASE","GROUP")
   family = family
@@ -693,6 +694,7 @@ doBORAL_ord <- function(MAE, tax_level, boral_covariates=c(), family, datatype =
 {
   tax_level = tax_level
   #tax_level = "genus"
+  boral_covariates = boral_covariates
   #boral_covariates = match.arg(boral_covariates, several.ok = TRUE)
   #boral_covariates = c("AGE","DISEASE","GROUP")
   family = family

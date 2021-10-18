@@ -7,7 +7,7 @@ output$tab <- renderUI({
 })
 
 # reactive values shared through the shiny app
-data_dir = file.path("extdata/MAE.rds")
+data_dir = system.file("shiny/extdata/MAE.rds", package = "QuickFixR")
 MAE = readRDS(data_dir)
 vals <- reactiveValues(
   MAE = readRDS(data_dir),
@@ -17,11 +17,11 @@ vals <- reactiveValues(
 observeEvent(input$upload_example,{
   withBusyIndicatorServer("upload_example", {
     if (input$example_data == "toy"){
-      data_dir = file.path("extdata/MAE.rds")
+      data_dir = system.file("shiny/extdata/MAE.rds", package = "QuickFixR")
     } else if (input$example_data == "Disease_Challenge"){
-      data_dir = file.path("extdata/Disease_Challenge.rds")
+      data_dir = system.file("shiny/extdata/Disease_Challenge.rds", package = "QuickFixR")
     } else if (input$example_data == "NWS"){
-      data_dir = file.path("extdata/NWS_MAG_Profiling.rds")
+      data_dir = system.file("shiny/extdata/NWS_MAG_Profiling.rds", package = "QuickFixR")
     }
     MAE_tmp = readRDS(data_dir)
     vals$MAE <- MAE_tmp
@@ -115,14 +115,15 @@ updateCovariate <- function(session){
   updateSelectInput(session, "prev_variable", choices = covariates)
   
   # Differential
-  updateSelectInput(session, "input_diff_condition", choices = covariates)
+  updateSelectInput(session, "input_diff_condition", choices = covariates.two.levels)
   #updateSelectInput(session, "input_diff_condition_covariate", choices = covariates)
   
   # LME
   updateSelectInput(session, "lme_exp_var", choices = covariates)
   updateSelectInput(session, "lme_random_var", choices = covariates)
   
-  
+  # Bayes
+  updateSelectInput(session, "boral_covariates", choices = covariates)
   
   # Biomarker
   updateSelectInput(session, "select_target_condition_biomarker", choices = covariates.two.levels)
@@ -169,6 +170,8 @@ updateTaxLevel <- function(session){
   # LME
   updateSelectInput(session, "lme_taxlev", choices = tax.name, selected=tax.default)
   
+  #Bayes
+  updateSelectInput(session, "boral_taxlev", choices = tax.name, selected=tax.default)
   
   # Biomarker
   updateSelectInput(session, "taxl_biomarker", choices = tax.name, selected="genus")
