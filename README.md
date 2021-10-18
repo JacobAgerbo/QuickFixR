@@ -1,7 +1,7 @@
 # QuickFixR
 Hello world! Hang in there! 
 
-Here I present QuickFixR. A small shiny based R packages, which makes R interactive and more userfriendly. The package is trying to help researchers working on any Omics-based data, which are not super happy about coding at all. Within this packages it is possible to get an overview of data.
+Here I present QuickFixR. A small shiny based R packages, which makes R interactive and more user friendly. The package is trying to help researchers working on any Omics-based data, which are not super happy about coding at all. Within this packages it is possible to get an overview of data.
 
 ## Introduction to dependencies
 
