@@ -40,6 +40,10 @@ See examples below.
 • Bayesian ordination and regression analysis (quite amazing, must say!)
 
 ## Installation
+
+This packages requires quite some packages to run, since it is rather extensive. Installing them can be a bugger.
+Installation of this package will require R Version >4.1.0.
+
 ```{r Installation, include = FALSE}
 # Install devtools from CRAN
 install.packages("devtools")
