@@ -1,0 +1,19 @@
+Package: QuickFixR
+Title: Helps scientist with data explorative tasks with user interface
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Jacob",
+           family = "Agerbo Rasmussen",
+           role = c("aut", "cre"),
+           email = "Jacob.Rasmussen@bio.ku.dk",
+           comment = c(ORCID = "0000-0002-7710-8912"))
+Description: Helps noncoding scientist using R with user interface.
+License: `use_mit_license()`
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
