@@ -47,7 +47,12 @@ install.packages("devtools")
 # Or the development version from GitHub:
 # install.packages("devtools")
 devtools::install_github("JacobAgerbo/QuickFixR")
+```
 
+## Running Shiny
+After installation, which hopefully should be the most difficult part, then you can run a simple commmand to start of the interactive part.
+```{r Run QuickFixR, include = FALSE}
+QuickFixR::QuickFix
 ```
 
 ## What is next?
