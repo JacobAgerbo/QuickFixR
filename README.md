@@ -24,10 +24,31 @@ See examples below.
 
 ## Main Features in QuickFixR
 • Uploading of your data
+
 • Getting an overview of your data and metadata
+
 • Investigate composition of your data, either raw or by using fancy metrics, like Hill Diversity
+
 • Ordination, including PCA, PCoA and UMAP (fancy!)
-• Testing, including differential testing, correlation with linear mixed effect models (taking into acount random variable), and bayesian ordination and regression   analysis
+
+• Prevalence testing 
+
+• Differential testing 
+
+• Correlation with linear mixed effect models (taking into acount random variable)
+
+• Bayesian ordination and regression analysis (quite amazing, must say!)
+
+## Installation
+```{r Installation, include = FALSE}
+# Install devtools from CRAN
+install.packages("devtools")
+
+# Or the development version from GitHub:
+# install.packages("devtools")
+devtools::install_github("JacobAgerbo/QuickFixR")
+
+```
 
 ## What is next?
 
