@@ -58,10 +58,15 @@ QuickFixR::QuickFix()
 ## What is next?
 
 I am planning to incoorporate more features in the following nearest future, which includes
+
 • Generalised Linear Models
+
 • Biomarker Prediction
+
 • Batch Correction of data
+
 • Normalisation, like quantile Norm, VSN, etc.
+
 • Clustering, like KNN, PAM, and HCLUST
 
 Please enjoy :) 
