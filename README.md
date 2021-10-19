@@ -23,6 +23,9 @@ See examples below.
 ![alt text](https://github.com/JacobAgerbo/QuickFixR/blob/main/inst/shiny/www/data_example.png)
 
 ## Main Features in QuickFixR
+
+This package is mainly combining already established methods from really nice pacakages like _animalcules_, _lmerTest_ and _boral_. I am only trying to provide a more user-friendly approach. These packages should be fully credited for their amazing work!
+
 • Uploading of your data
 
 • Getting an overview of your data and metadata
