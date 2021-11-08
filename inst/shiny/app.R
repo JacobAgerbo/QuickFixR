@@ -2,7 +2,7 @@ dependencies <- c("devtools","BiocManager","shiny","shinyjs",
                   "MultiAssayExperiment","ggplot2","plotly",
                   "vegan","dplyr","magrittr","biomformat",
                   "shinythemes","RColorBrewer","decontam",
-                  "animalcules","limma", "broom.mixed", "lmerTest", "performance", "gt", "gtExtras","boral","ggboral", "tidyverse", "pbkrtest", "ggiraph", "hilldiv","ber","sva","factoextra")
+                  "animalcules","limma", "broom.mixed", "lmerTest", "performance", "gt", "gtExtras","boral","ggboral", "tidyverse", "pbkrtest", "ggiraph", "hilldiv","sva","factoextra")
 
 
 # Install packages not yet installed
