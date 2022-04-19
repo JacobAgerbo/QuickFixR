@@ -21,7 +21,6 @@
 #' @import performance
 #' @import gt
 #' @import gtExtras
-#' @import boral
 #' @importFrom shinyjs addClass
 
 #' @return The shiny app will open
