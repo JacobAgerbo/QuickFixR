@@ -22,13 +22,15 @@
 #' @import gt
 #' @import gtExtras
 #' @import boral
+#' @import phyloseq
+#' @import ape
 #' @importFrom shinyjs addClass
 
 #' @return The shiny app will open
 #'
 #' @param dev Run the applicaiton in developer mode
-#' 
-#' @examples 
+#'
+#' @examples
 #' \dontrun{
 #' QuickFix()
 #' }
@@ -37,7 +39,7 @@
 QuickFix <- function(dev=FALSE) {
   appDir <- system.file("shiny", package="QuickFixR")
   if (appDir == "") {
-    stop("Could not find myapp. Try re-installing `mypackage`.", 
+    stop("Could not find myapp. Try re-installing `mypackage`.",
          call. = FALSE)
   }
   if (dev) {
