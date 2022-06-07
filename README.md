@@ -1,7 +1,7 @@
 # QuickFixR
 Hello world! Hang in there!
 
-Here I present QuickFixR. A small shiny based R packages, which makes R interactive and more user friendly. The package is trying to help researchers working on any Omics-based data, which are not super happy about coding at all. Within this packages it is possible to get an overview of data.
+Here I present QuickFixR. A small shiny based R packages, which makes R interactive and more user friendly. The package is trying to help researchers working on any **'Omics based data**, which are not super happy about coding at all. Within this packages it is possible to get an overview of data.
 
 ## Introduction to dependencies
 
@@ -9,7 +9,7 @@ The only thing you need is some data in .csv or .txt format. The package needs t
 
 • **Count Table**
     A table which consists of columns as samples and rows as features of any kind, like bacteria (MAGs, AVSs or OTUs), genes, proteins or even metabolites!
-    Columns names are sample names and rownames are set as feature IDs.
+    Columns names are sample names and row names are set as feature IDs.
 
 • **Classification Table**   
   A table which consists of columns as layers of feature information (like Kingdom, Phyla, Order, Class, Family, etc for taxonomy of MAGs). Rownames are set as       feature IDs (the same as the rownames in the count table).
