@@ -1,24 +1,24 @@
 # QuickFixR
-Hello world! Hang in there! 
+Hello world! Hang in there!
 
 Here I present QuickFixR. A small shiny based R packages, which makes R interactive and more user friendly. The package is trying to help researchers working on any Omics-based data, which are not super happy about coding at all. Within this packages it is possible to get an overview of data.
 
 ## Introduction to dependencies
 
-The only thing you need is some data in .csv or .txt format. The package needs three types of table to function. 
+The only thing you need is some data in .csv or .txt format. The package needs three types of table to function.
 
 • **Count Table**
     A table which consists of columns as samples and rows as features of any kind, like bacteria (MAGs, AVSs or OTUs), genes, proteins or even metabolites!
     Columns names are sample names and rownames are set as feature IDs.
 
 • **Classification Table**   
-  A table which consists of columns as layers of feature information (like Kingdom, Phyla, Order, Class, Family, etc for taxonomy of MAGs). Rownames are set as       feature IDs (the same as the rownames in the count table). 
+  A table which consists of columns as layers of feature information (like Kingdom, Phyla, Order, Class, Family, etc for taxonomy of MAGs). Rownames are set as       feature IDs (the same as the rownames in the count table).
 
 • **Sample Information Table**
-  I normally say this is the most important thing. Without sample information, fancy data just becomes useless stuff on your harddrive. Well! Columns as variables,   like sample types, Location, Instrument, batch, Tissue types, etc. 
+  I normally say this is the most important thing. Without sample information, fancy data just becomes useless stuff on your harddrive. Well! Columns as variables, like **sample types**, **Location of sampling**, **Instrument**, **batch**, **Tissue types**, **diet**, etc.
   Rownames are sample names (the same as the colnames in the count table).
 
-See examples below. 
+See examples below.
 
 ![alt text](https://github.com/JacobAgerbo/QuickFixR/blob/main/inst/shiny/www/data_example.png)
 
@@ -34,9 +34,9 @@ This package is mainly combining already established methods from really nice pa
 
 • Ordination, including PCA, PCoA and UMAP (fancy!)
 
-• Prevalence testing 
+• Prevalence testing
 
-• Differential testing 
+• Differential testing
 
 • Correlation with linear mixed effect models (taking into acount random variable)
 
@@ -49,9 +49,9 @@ Installation of this package will require R Version >4.1.0.
 
 First you have to download JAGS for bayesian modelling, because BORAL and rjags is depedent on this. Please find a MAC solution below (sorry no-mac users, save yourself)
 
-https://sourceforge.net/projects/mcmc-jags/ 
+https://sourceforge.net/projects/mcmc-jags/
 
-It can be a good idea to start with this line, fist :) 
+It can be a good idea to start with this line, fist :)
 
 
 ```{r Installation of dependencies, include = FALSE}   
@@ -79,7 +79,7 @@ installed_packages <- dependencies %in% rownames(installed.packages())
 if (installed_packages[23] == FALSE) {
   remotes::install_github("mbedward/ggboral")}
 ```
-Now if all went smooth, you should be golden! 
+Now if all went smooth, you should be golden!
 
 ```{r Installation, include = FALSE}
 # Install devtools from CRAN
@@ -98,7 +98,7 @@ QuickFixR::QuickFix()
 
 ## What is next?
 
-I am planning to incoorporate more features in the following nearest future, which includes
+I am planning to incorporate more features in the following nearest future, which includes
 
 • Generalised Linear Models
 
@@ -110,4 +110,4 @@ I am planning to incoorporate more features in the following nearest future, whi
 
 • Clustering, like KNN, PAM, and HCLUST
 
-Please enjoy :) 
+Please enjoy :)
