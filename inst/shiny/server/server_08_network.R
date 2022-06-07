@@ -1,7 +1,3 @@
-library(phyloseq)
-setwd("Documents/GitHub/QuickFixR/inst/shiny/extdata/")
-MAE <- readRDS("MAE.rds")
-
 # Make network
 networking <- function(MAE,
                        NW_max_dist = c(),
