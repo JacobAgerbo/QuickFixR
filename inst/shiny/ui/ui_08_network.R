@@ -18,13 +18,12 @@ tabPanel("Network Analysis",
                                                                              "Binary"  = "jaccard",
                                                                              "Unifrac" = "unifrac"), selected = "bray"),
                           selectInput("NW_type", "Select Network type", c("Sample based" = "samples",
-                                                                               "Taxonomy based"  = "taxa", selected = "samples")
+                                                                               "Taxonomy based"  = "taxa"), selected = "samples")
                         ),
                         
                         # Do plot button
                         actionButton("NW_plot_btn", "Go!", class = "btn-primary"),
-                        actionButton("NW_print_btn", "Print"),
-                        width=3
+                        width=5
                       ),
                       
                       mainPanel(
