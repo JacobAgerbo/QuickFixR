@@ -40,7 +40,8 @@ ui <- navbarPage(
   source(file.path("ui", "ui_04_relabu.R"),  local = TRUE)$value,
   source(file.path("ui", "ui_05_diversity.R"),  local = TRUE)$value,
   source(file.path("ui", "ui_06_ordination.R"),  local = TRUE)$value,
-  source(file.path("ui", "ui_07_testing.R"),  local = TRUE)$value
+  source(file.path("ui", "ui_07_testing.R"),  local = TRUE)$value,
+  source(file.path("ui", "ui_08_network.R"),  local = TRUE)$value
 )
 
 server <- function(input, output, session) {
@@ -51,6 +52,7 @@ server <- function(input, output, session) {
   source(file.path("server", "server_05_diversity.R"),  local = TRUE)$value
   source(file.path("server", "server_06_ordination.R"),  local = TRUE)$value
   source(file.path("server", "server_07_testing.R"),  local = TRUE)$value
+  source(file.path("server", "server_08_network.R"),  local = TRUE)$value
 }
 
 shinyApp(ui = ui, server = server)
