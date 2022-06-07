@@ -4,7 +4,7 @@ MAE <- readRDS("MAE.rds")
 
 # Make network
 networking <- function(MAE,
-                       NW_max_dist = c()
+                       NW_max_dist = c(),
                               NW_color = c(),
                               NW_shape = c(),
                               NW_label=c(),
