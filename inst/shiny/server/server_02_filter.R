@@ -127,7 +127,7 @@ filter_summary_bar_density <- function(MAE, samples_discard = NULL, filter_type,
   if (num_levels > 8 & num_levels/nrow(sam_table) >= 0.3 & 
       !is.character(unlist(sam_table[, cov]))) {
     fit <- density(unlist(sam_table[, cov]))
-    num.density <- plot_ly(x = fit$x, y = fit$y, type = "scatter", colors = "YlOrRd", marker = list(color = "orange"), 
+    num.density <- plot_ly(x = fit$x, y = fit$y, type = "scatter", colors = "YlOrRd", marker = list(color = "black"), 
                            line = list(color = "black"),
                            mode = "lines", fill = "tozeroy",fillcolor = 'orange') %>% layout(title = cov, 
                                                                         xaxis = list(title = cov), yaxis = list(title = "Density"))
@@ -178,7 +178,7 @@ filter_summary_pie_box <- function (MAE, samples_discard = NULL, filter_type, sa
     num.scatter <- plotly::plot_ly(y = vec, jitter = 0.5, 
                                    pointpos = -1.8, boxpoints = "all", hoverinfo = "text", 
                                    text = hover.txt, marker = list(color = "orange"), 
-                                   line = list(color = "darkgrey"), name = cov, colors = "orange",
+                                   line = list(color = "black"), name = cov, colors = "orange", fillcolor = 'orange', alpha = 0.5,
                                    type = "box") %>% layout(title = cov, yaxis = list(title = cov))
     num.scatter$elementId <- NULL
     return(num.scatter)
@@ -186,7 +186,7 @@ filter_summary_pie_box <- function (MAE, samples_discard = NULL, filter_type, sa
   else {
     cat.df = data.frame(table(sam_table[, cov]))
     cat.pie <- plotly::plot_ly(cat.df, labels = ~Var1, values = ~Freq, 
-                               type = "pie", color = ~cov, colors = "YlOrRd", showlegend = FALSE) %>% layout(title = cov)
+                               type = "pie", color = ~cov, colors = "Set1", showlegend = FALSE) %>% layout(title = cov)
     cat.pie$elementId <- NULL
     return(cat.pie)
   }
