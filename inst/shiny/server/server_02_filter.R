@@ -128,8 +128,8 @@ filter_summary_bar_density <- function(MAE, samples_discard = NULL, filter_type,
       !is.character(unlist(sam_table[, cov]))) {
     fit <- density(unlist(sam_table[, cov]))
     num.density <- plot_ly(x = fit$x, y = fit$y, type = "scatter", colors = "YlOrRd", marker = list(color = "orange"), 
-                           line = list(color = "darkgrey"),
-                           mode = "lines", fill = "tozeroy") %>% layout(title = cov, 
+                           line = list(color = "black"),
+                           mode = "lines", fill = "tozeroy",fillcolor = 'orange') %>% layout(title = cov, 
                                                                         xaxis = list(title = cov), yaxis = list(title = "Density"))
     num.density$elementId <- NULL
     return(num.density)
@@ -137,7 +137,7 @@ filter_summary_bar_density <- function(MAE, samples_discard = NULL, filter_type,
   else {
     cat.df = data.frame(table(sam_table[, cov]))
     cat.bar <- plot_ly(x = cat.df$Var1, y = cat.df$Freq, marker = list(color = "orange"), 
-                       line = list(color = "darkgrey"),
+                       line = list(color = "black"),
                        type = "bar", colors = "YlOrRd", showlegend = FALSE) %>% layout(title = cov, 
                                                                     xaxis = list(tickmode = "array", showticklabels = TRUE, 
                                                                                  categoryorder = "trace"), yaxis = list(title = "Frequency"))
@@ -186,7 +186,7 @@ filter_summary_pie_box <- function (MAE, samples_discard = NULL, filter_type, sa
   else {
     cat.df = data.frame(table(sam_table[, cov]))
     cat.pie <- plotly::plot_ly(cat.df, labels = ~Var1, values = ~Freq, 
-                               type = "pie", color = ~Var1, colors = "YlOrRd", showlegend = FALSE) %>% layout(title = cov)
+                               type = "pie", color = ~cov, colors = "YlOrRd", showlegend = FALSE) %>% layout(title = cov)
     cat.pie$elementId <- NULL
     return(cat.pie)
   }
