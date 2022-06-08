@@ -107,6 +107,43 @@ observeEvent(input$filter_reset_btn,{
 })
 
 ## Plots
+
+filter_summary_bar_density <- function(MAE, samples_discard = NULL, filter_type, sample_condition) 
+{
+  MAE_subset <- mae_pick_samples(MAE = MAE, discard_samples = samples_discard)
+  microbe <- MAE_subset[["MicrobeGenetics"]]
+  sam_table <- as.data.frame(colData(microbe))
+  counts_table <- as.data.frame(assays(microbe))[, rownames(sam_table)]
+  sam_table[, "Reads"] = colSums(counts_table[, rownames(sam_table)])
+  sam_table[, "Taxnum"] = apply(counts_table, 2, function(x) sum(x >= 
+                                                                   1))
+  if (filter_type == "Microbes") {
+    cov <- "Taxnum"
+  }
+  else {
+    cov <- sample_condition
+  }
+  num_levels <- length(unique(unlist(sam_table[, cov])))
+  if (num_levels > 8 & num_levels/nrow(sam_table) >= 0.3 & 
+      !is.character(unlist(sam_table[, cov]))) {
+    fit <- density(unlist(sam_table[, cov]))
+    num.density <- plot_ly(x = fit$x, y = fit$y, type = "scatter", colors = "Set2",
+                           mode = "lines", fill = "tozeroy") %>% layout(title = cov, 
+                                                                        xaxis = list(title = cov), yaxis = list(title = "Density"))
+    num.density$elementId <- NULL
+    return(num.density)
+  }
+  else {
+    cat.df = data.frame(table(sam_table[, cov]))
+    cat.bar <- plot_ly(x = cat.df$Var1, y = cat.df$Freq, 
+                       type = "bar", colors = "Set2", showlegend = FALSE) %>% layout(title = cov, 
+                                                                    xaxis = list(tickmode = "array", showticklabels = TRUE, 
+                                                                                 categoryorder = "trace"), yaxis = list(title = "Frequency"))
+    cat.bar$elementId <- NULL
+    return(cat.bar)
+  }
+}
+
 output$filter_summary_top_plot <- renderPlotly({
     p <- filter_summary_bar_density(MAE = vals$MAE,
                                     samples_discard = c(),
@@ -116,12 +153,49 @@ output$filter_summary_top_plot <- renderPlotly({
     return(p)
 })
 
+
+filter_summary_pie_box <- function (MAE, samples_discard = NULL, filter_type, sample_condition) 
+{
+  MAE_subset <- mae_pick_samples(MAE = MAE, discard_samples = samples_discard)
+  microbe <- MAE_subset[["MicrobeGenetics"]]
+  sam_table <- as.data.frame(colData(microbe))
+  counts_table <- as.data.frame(assays(microbe))[, rownames(sam_table)]
+  sam_table[, "Reads"] = colSums(counts_table[, rownames(sam_table)])
+  sam_table[, "Taxnum"] = apply(counts_table, 2, function(x) sum(x >= 
+                                                                   1))
+  if (filter_type == "Microbes") {
+    cov <- "Taxnum"
+  }
+  else {
+    cov <- sample_condition
+  }
+  num_levels <- length(unique(unlist(sam_table[, cov])))
+  if (num_levels > 8 & num_levels/nrow(sam_table) >= 0.3 & 
+      !is.character(unlist(sam_table[, cov]))) {
+    vec <- unlist(sam_table[, cov])
+    hover.txt <- paste(rownames(sam_table), ", ", vec, sep = "")
+    num.scatter <- plotly::plot_ly(y = vec, jitter = 0.3, 
+                                   pointpos = -1.8, boxpoints = "all", hoverinfo = "text", 
+                                   text = hover.txt, marker = list(color = "rgb(219,134,7)"), 
+                                   line = list(color = "rgb(77,74,70)"), name = cov, 
+                                   type = "box") %>% layout(title = cov, yaxis = list(title = cov))
+    num.scatter$elementId <- NULL
+    return(num.scatter)
+  }
+  else {
+    cat.df = data.frame(table(sam_table[, cov]))
+    cat.pie <- plotly::plot_ly(cat.df, labels = ~Var1, values = ~Freq, 
+                               type = "pie", colors = "Set2", showlegend = FALSE) %>% layout(title = cov)
+    cat.pie$elementId <- NULL
+    return(cat.pie)
+  }
+}
+
 output$filter_summary_bottom_plot <- renderPlotly({
     p <- filter_summary_pie_box(MAE = vals$MAE,
                                 samples_discard = c(),
                                 filter_type = input$filter_type,
                                 sample_condition = input$filter_type_metadata)
-    p <- p %>% style(marker = list(color = c("#Dark2")))
     return(p)
 })
 
