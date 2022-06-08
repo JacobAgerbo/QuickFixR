@@ -53,7 +53,7 @@ networking <- function(MAE,
   
   plotly.nw <- plotly::ggplotly(plot.nw)
   
-  return(plotly.nw) 
+  return(list(plotly = plotly.nw))
 }
 
 # Test
@@ -69,10 +69,10 @@ do_Network <- eventReactive(input$NW_plot_btn, {
                        NW_label = input$NW_label,
                        NW_type = input$NW_type,
                        NW_distance = input$NW_distance,)
-  return(suppressWarnings(result))
+  return(suppressWarnings(result$plotly))
 })
 
-output$NW_plot <- plotly::renderPlotly({
+output$NW_plot <- renderPlotly({
   p <- suppressWarnings(do_Network())
   return(suppressWarnings(p))
 })
