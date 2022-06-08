@@ -63,12 +63,12 @@ networking <- function(MAE,
 # Network Analysis
 do_Network <- eventReactive(input$NW_plot_btn, {
   result <- networking(MAE = vals$MAE,
-                              NW_max_dist = input$NW_max_dist,
-                              NW_color = input$NW_color,
-                              NW_shape = input$NW_shape,
-                              NW_label = input$NW_label,
-                              NW_type = input$NW_type,
-                              NW_distance = input$NW_distance,)
+                       NW_max_dist = input$NW_max_dist,
+                       NW_color = input$NW_color,
+                       NW_shape = input$NW_shape,
+                       NW_label = input$NW_label,
+                       NW_type = input$NW_type,
+                       NW_distance = input$NW_distance,)
   return(suppressWarnings(result))
 })
 
