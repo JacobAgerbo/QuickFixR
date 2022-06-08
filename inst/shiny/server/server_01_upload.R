@@ -1,7 +1,7 @@
 # A notification ID
 # id <- NULL
 
-url <- a("website!", href="")
+url <- a("website!", href="https://github.com/JacobAgerbo/QuickFixR")
 output$tab <- renderUI({
   tagList("Need help? Check the docs on our", url)
 })

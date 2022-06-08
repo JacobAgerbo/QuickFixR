@@ -5,7 +5,7 @@ tabPanel("Network Analysis",
                     tags$br(),
                     sidebarLayout(
                       sidebarPanel(
-                        numericInput('NW_max_dist', 'Threshold for maximal distance between nodes', 0.3, min=0, max=1),
+                        numericInput('NW_max_dist', 'Threshold for maximal distance between nodes', value = 0.3, min=0, max=1),
                         selectizeInput('NW_color', 'Node color', choices = covariates.colorbar),
                         selectizeInput('NW_shape', 'Node shape', choices =covariates.colorbar),
                         selectizeInput('NW_label', 'Node label', choices = c('Sample ID' = '',covariates), selected = NULL),
