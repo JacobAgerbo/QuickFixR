@@ -47,19 +47,32 @@ networking <- function(MAE,
   } else{
     label = label
   }
+  dark_mode <- source("https://raw.githubusercontent.com/nsgrantham/ggdark/master/R/dark_mode.R")
+
+  dark_theme_classic <- function(base_size = 11, base_family = "", base_line_size = base_size/22,
+                                 base_rect_size = base_size/22) {
+    dark_mode(theme_classic(base_size, base_family, base_line_size, base_rect_size))
+  }
   plot.nw <- phyloseq::plot_network(Network, physeq, type = type,
                           color = color, 
                           shape=shape,
                           line_weight = 0.5,
-                          label=label) + scale_color_brewer(palette = palette) + scale_fill_brewer(palette = palette)
+                          label=label) + scale_color_brewer(palette = palette) + scale_fill_brewer(palette = palette) + dark_theme_classic() +
+    theme(legend.position = "none",
+          panel.grid = element_blank(),
+          axis.title = element_blank(),
+          axis.text = element_blank(),
+          axis.ticks = element_blank()
+      )
   
-  plotly.nw <- plotly::ggplotly(plot.nw)
+  plotly.nw <- plotly::ggplotly(plot.nw, tooltip = c("colour","shape", "label"))
+  
   
   return(list(plotly = plotly.nw))
 }
 
 # Test
-#networking(MAE,NW_max_dist = 0.3, NW_type = "samples", NW_color = "GROUP", NW_shape = "SEX", NW_distance = "unifrac", NW_palette = "Set2")
+networking(MAE,NW_max_dist = 0.3, NW_type = "samples", NW_color = "GROUP", NW_shape = "SEX", NW_distance = "unifrac", NW_palette = "Set2")
 
 ## SHINY
 ## Shiny call for function
