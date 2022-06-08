@@ -5,7 +5,8 @@ networking <- function(MAE,
                               NW_shape = c(),
                               NW_label=c(),
                               NW_type = c("samples", "taxa"),
-                              NW_distance = c("jaccard","unifrac", "bray")) 
+                              NW_distance = c("jaccard","unifrac", "bray"),
+                              NW_palette = c("Dark2", "Set1", "Set2","Set3", "Paired", "Pastel")) 
 {
   set.seed(1)
   # test presets
@@ -16,6 +17,7 @@ networking <- function(MAE,
   label=NW_label
   type = match.arg(NW_type)
   distance = match.arg(NW_distance)
+  palette = match.arg(NW_palette)
 
   ## tables from MAE
   microbe <- MAE[['MicrobeGenetics']] #double bracket subsetting is easier
@@ -49,7 +51,7 @@ networking <- function(MAE,
                           color = color, 
                           shape=shape,
                           line_weight = 0.5,
-                          label=label)
+                          label=label) + scale_color_brewer(palette = palette) + scale_fill_brewer(palette = palette)
   
   plotly.nw <- plotly::ggplotly(plot.nw)
   
@@ -57,9 +59,11 @@ networking <- function(MAE,
 }
 
 # Test
-#networking(MAE,NW_max_dist = 0.3, NW_type = "samples", NW_color = "SEX", NW_shape = "GROUP", NW_distance = "unifrac")
+#networking(MAE,NW_max_dist = 0.3, NW_type = "samples", NW_color = "GROUP", NW_shape = "SEX", NW_distance = "unifrac", NW_palette = "Set2")
 
 ## SHINY
+## Shiny call for function
+#plot
 # Network Analysis
 do_Network <- eventReactive(input$NW_plot_btn, {
   result <- networking(MAE = vals$MAE,
