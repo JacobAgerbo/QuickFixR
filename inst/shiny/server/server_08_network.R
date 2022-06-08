@@ -77,7 +77,7 @@ do_Network <- eventReactive(input$NW_plot_btn, {
   return(suppressWarnings(result$plot))
 })
 
-output$Network_plot <- renderPlotly({
+output$NW_plot <- renderPlotly({
   p <- suppressWarnings(do_Network())
   return(suppressWarnings(p))
 })
