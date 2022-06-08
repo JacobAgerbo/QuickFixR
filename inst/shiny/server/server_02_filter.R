@@ -127,8 +127,8 @@ filter_summary_bar_density <- function(MAE, samples_discard = NULL, filter_type,
   if (num_levels > 8 & num_levels/nrow(sam_table) >= 0.3 & 
       !is.character(unlist(sam_table[, cov]))) {
     fit <- density(unlist(sam_table[, cov]))
-    num.density <- plot_ly(x = fit$x, y = fit$y, type = "scatter", colors = "YlOrRd", marker = list(color = "rgb(219,134,7)"), 
-                           line = list(color = "rgb(77,74,70)"),
+    num.density <- plot_ly(x = fit$x, y = fit$y, type = "scatter", colors = "YlOrRd", marker = list(color = "orange"), 
+                           line = list(color = "darkgrey"),
                            mode = "lines", fill = "tozeroy") %>% layout(title = cov, 
                                                                         xaxis = list(title = cov), yaxis = list(title = "Density"))
     num.density$elementId <- NULL
@@ -136,8 +136,8 @@ filter_summary_bar_density <- function(MAE, samples_discard = NULL, filter_type,
   }
   else {
     cat.df = data.frame(table(sam_table[, cov]))
-    cat.bar <- plot_ly(x = cat.df$Var1, y = cat.df$Freq, marker = list(color = "rgb(219,134,7)"), 
-                       line = list(color = "rgb(77,74,70)"),
+    cat.bar <- plot_ly(x = cat.df$Var1, y = cat.df$Freq, marker = list(color = "orange"), 
+                       line = list(color = "darkgrey"),
                        type = "bar", colors = "YlOrRd", showlegend = FALSE) %>% layout(title = cov, 
                                                                     xaxis = list(tickmode = "array", showticklabels = TRUE, 
                                                                                  categoryorder = "trace"), yaxis = list(title = "Frequency"))
