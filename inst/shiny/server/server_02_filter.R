@@ -127,7 +127,7 @@ filter_summary_bar_density <- function(MAE, samples_discard = NULL, filter_type,
   if (num_levels > 8 & num_levels/nrow(sam_table) >= 0.3 & 
       !is.character(unlist(sam_table[, cov]))) {
     fit <- density(unlist(sam_table[, cov]))
-    num.density <- plot_ly(x = fit$x, y = fit$y, type = "scatter", colors = "Set2",
+    num.density <- plot_ly(x = fit$x, y = fit$y, type = "scatter", colors = "YlOrRd",
                            mode = "lines", fill = "tozeroy") %>% layout(title = cov, 
                                                                         xaxis = list(title = cov), yaxis = list(title = "Density"))
     num.density$elementId <- NULL
@@ -136,7 +136,7 @@ filter_summary_bar_density <- function(MAE, samples_discard = NULL, filter_type,
   else {
     cat.df = data.frame(table(sam_table[, cov]))
     cat.bar <- plot_ly(x = cat.df$Var1, y = cat.df$Freq, 
-                       type = "bar", colors = "Set2", showlegend = FALSE) %>% layout(title = cov, 
+                       type = "bar", colors = "YlOrRd", showlegend = FALSE) %>% layout(title = cov, 
                                                                     xaxis = list(tickmode = "array", showticklabels = TRUE, 
                                                                                  categoryorder = "trace"), yaxis = list(title = "Frequency"))
     cat.bar$elementId <- NULL
@@ -149,7 +149,6 @@ output$filter_summary_top_plot <- renderPlotly({
                                     samples_discard = c(),
                                     filter_type = input$filter_type,
                                     sample_condition = input$filter_type_metadata)
-    p <- p %>% style(marker = list(color = c("#Dark2")))
     return(p)
 })
 
@@ -185,7 +184,7 @@ filter_summary_pie_box <- function (MAE, samples_discard = NULL, filter_type, sa
   else {
     cat.df = data.frame(table(sam_table[, cov]))
     cat.pie <- plotly::plot_ly(cat.df, labels = ~Var1, values = ~Freq, 
-                               type = "pie", colors = "Set2", showlegend = FALSE) %>% layout(title = cov)
+                               type = "pie", colors = "YlOrRd", showlegend = FALSE) %>% layout(title = cov)
     cat.pie$elementId <- NULL
     return(cat.pie)
   }
