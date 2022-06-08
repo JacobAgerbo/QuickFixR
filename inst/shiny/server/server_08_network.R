@@ -31,12 +31,12 @@ networking <- function(MAE,
     as.data.frame(SummarizedExperiment::assays(microbe))[,rownames(sam_table)] 
   
   #
-  physeq <- phyloseq::phyloseq(otu_table(as.matrix(counts_table),taxa_are_rows=TRUE),
-                     tax_table(as.matrix(tax_table)),
-                     sample_data(sam_table))
+  physeq <- phyloseq::phyloseq(phyloseq::otu_table(as.matrix(counts_table),taxa_are_rows=TRUE),
+                               phyloseq::tax_table(as.matrix(tax_table)),
+                               phyloseq::sample_data(sam_table))
   
   
-  random_tree = ape::rtree(ntaxa(physeq), rooted=TRUE, tip.label=taxa_names(physeq))
+  random_tree = ape::rtree(phyloseq::ntaxa(physeq), rooted=TRUE, tip.label=phyloseq::taxa_names(physeq))
   physeq = phyloseq::merge_phyloseq(physeq, random_tree)
   
   Network <- phyloseq::make_network(physeq, max.dist=max.dist, distance = distance)
@@ -53,16 +53,11 @@ networking <- function(MAE,
   
   plotly.nw <- plotly::ggplotly(plot.nw)
   
-  # Return results
-  output<-list(print = plot.nw, 
-               plot = plotly.nw )
-  return(output) 
+  return(plotly.nw) 
 }
 
 # Test
-#test <- networking(MAE, NW_type = "samples", NW_color = "SEX", NW_shape = "GROUP", NW_distance = "unifrac")
-#test$plot
-#test$print
+#networking(MAE,NW_max_dist = 0.3, NW_type = "samples", NW_color = "SEX", NW_shape = "GROUP", NW_distance = "unifrac")
 
 ## SHINY
 # Network Analysis
@@ -77,7 +72,7 @@ do_Network <- eventReactive(input$NW_plot_btn, {
   return(suppressWarnings(result$plot))
 })
 
-output$NW_plot <- renderPlotly({
+output$NW_plot <- plotly::renderPlotly({
   p <- suppressWarnings(do_Network())
   return(suppressWarnings(p))
 })
