@@ -112,7 +112,7 @@ updateCovariate <- function(session){
   # Testing
   
   # Prevalence Testing
-  updateSelectInput(session, "prev_variable", choices = covariates)
+  updateSelectInput(session, "prev_variable", choices = covariates.two.levels)
   
   # Differential
   updateSelectInput(session, "input_diff_condition", choices = covariates.two.levels)
