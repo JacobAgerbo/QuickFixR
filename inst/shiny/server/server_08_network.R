@@ -72,7 +72,7 @@ networking <- function(MAE,
 }
 
 # Test
-networking(MAE,NW_max_dist = 0.3, NW_type = "samples", NW_color = "GROUP", NW_shape = "SEX", NW_distance = "unifrac", NW_palette = "Set2")
+networking(MAE,NW_max_dist = 0.3, NW_type = "samples", NW_color = "GROUP", NW_shape = "SEX", NW_distance = "unifrac", NW_palette = "Pastel")
 
 ## SHINY
 ## Shiny call for function
@@ -85,7 +85,8 @@ do_Network <- eventReactive(input$NW_plot_btn, {
                        NW_shape = input$NW_shape,
                        NW_label = input$NW_label,
                        NW_type = input$NW_type,
-                       NW_distance = input$NW_distance,)
+                       NW_distance = input$NW_distance,
+                       NW_palette = input$NW_palette)
   return(suppressWarnings(result$plotly))
 })
 
