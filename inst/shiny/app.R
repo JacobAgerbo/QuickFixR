@@ -33,7 +33,7 @@ ui <- navbarPage(
   title = paste("QuickFixR - helps scientist making stats in R"),
   id="QuickFixR",
   fluid=TRUE,
-  theme = shinytheme("sandstone"),
+  theme = shinytheme("superhero"),
   source(file.path("ui", "ui_01_upload.R"),  local = TRUE)$value,
   source(file.path("ui", "ui_02_filter.R"),  local = TRUE)$value,
   #source(file.path("ui", "ui_03_batch_correction.R"),  local = TRUE)$value,

@@ -128,6 +128,13 @@ updateCovariate <- function(session){
   # Biomarker
   updateSelectInput(session, "select_target_condition_biomarker", choices = covariates.two.levels)
   
+  # Network Analysis
+  
+  # Community Network
+  updateSelectInput(session, "NW_color", choices = c("None", covariates.colorbar))
+  updateSelectInput(session, "NW_shape", choices = c("None", covariates.colorbar))
+  updateSelectInput(session, "NW_label", choices = c("None", covariates))
+  
 }
 
 # update taxonomy levels
