@@ -175,10 +175,10 @@ filter_summary_pie_box <- function (MAE, samples_discard = NULL, filter_type, sa
       !is.character(unlist(sam_table[, cov]))) {
     vec <- unlist(sam_table[, cov])
     hover.txt <- paste(rownames(sam_table), ", ", vec, sep = "")
-    num.scatter <- plotly::plot_ly(y = vec, jitter = 0.3, 
+    num.scatter <- plotly::plot_ly(y = vec, jitter = 0.5, 
                                    pointpos = -1.8, boxpoints = "all", hoverinfo = "text", 
-                                   text = hover.txt, marker = list(color = "rgb(219,134,7)"), 
-                                   line = list(color = "rgb(77,74,70)"), name = cov, 
+                                   text = hover.txt, marker = list(color = "orange"), 
+                                   line = list(color = "darkgrey"), name = cov, colors = "orange",
                                    type = "box") %>% layout(title = cov, yaxis = list(title = cov))
     num.scatter$elementId <- NULL
     return(num.scatter)
@@ -186,7 +186,7 @@ filter_summary_pie_box <- function (MAE, samples_discard = NULL, filter_type, sa
   else {
     cat.df = data.frame(table(sam_table[, cov]))
     cat.pie <- plotly::plot_ly(cat.df, labels = ~Var1, values = ~Freq, 
-                               type = "pie", colors = "YlOrRd", showlegend = FALSE) %>% layout(title = cov)
+                               type = "pie", color = ~Var1, colors = "YlOrRd", showlegend = FALSE) %>% layout(title = cov)
     cat.pie$elementId <- NULL
     return(cat.pie)
   }
