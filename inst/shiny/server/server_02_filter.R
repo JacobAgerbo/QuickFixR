@@ -112,7 +112,7 @@ output$filter_summary_top_plot <- renderPlotly({
                                     samples_discard = c(),
                                     filter_type = input$filter_type,
                                     sample_condition = input$filter_type_metadata)
-    p <- p %>% plot_ly(colors = c("#c26d11"))
+    p <- p %>% plot_ly(colors = c("#Dark2"))
     return(p)
 })
 
@@ -121,7 +121,7 @@ output$filter_summary_bottom_plot <- renderPlotly({
                                 samples_discard = c(),
                                 filter_type = input$filter_type,
                                 sample_condition = input$filter_type_metadata)
-    p <- p %>% plot_ly(colors = c("#c26d11"))
+    p <- p %>% plot_ly(colors = c("#Dark2"))
     return(p)
 })
 
