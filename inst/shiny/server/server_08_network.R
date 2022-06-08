@@ -69,7 +69,7 @@ do_Network <- eventReactive(input$NW_plot_btn, {
                               NW_label = input$NW_label,
                               NW_type = input$NW_type,
                               NW_distance = input$NW_distance,)
-  return(suppressWarnings(result$plot))
+  return(suppressWarnings(result))
 })
 
 output$NW_plot <- plotly::renderPlotly({
