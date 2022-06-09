@@ -42,6 +42,8 @@ This package is mainly combining already established methods from really nice pa
 
 • Bayesian ordination and regression analysis (quite amazing, must say!)
 
+• Community analysis, using networks
+
 ## Installation
 
 This packages requires quite some packages to run, since it is a rather extensive framework. Installing them can be a bugger.
