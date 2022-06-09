@@ -47,9 +47,13 @@ This package is mainly combining already established methods from really nice pa
 This packages requires quite some packages to run, since it is a rather extensive framework. Installing them can be a bugger.
 Installation of this package will require R Version >4.1.0.
 
-First you have to download JAGS for bayesian modelling, because BORAL and rjags is depedent on this. Please find a MAC solution below (sorry no-mac users, save yourself)
+First you have to download JAGS for bayesian modelling, because BORAL and rjags is depedent on this. Please find a MAC and WINDOWS solution below.
 
+**MAC**
 https://sourceforge.net/projects/mcmc-jags/
+
+**WINDOWS**
+https://sourceforge.net/projects/mcmc-jags/files/JAGS/4.x/Windows/
 
 It can be a good idea to start with this line, fist :)
 
