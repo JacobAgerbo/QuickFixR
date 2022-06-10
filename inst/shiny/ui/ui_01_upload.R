@@ -98,7 +98,7 @@ tabPanel("Upload",
                                             ".tsv"
                                           )
                                 ),
-                                fileInput("annotfile.count", "Annotation file (required):",
+                                fileInput("annotfile.count", "Sample information file (required):",
                                           accept = c(
                                             "text/csv",
                                             "text/comma-separated-values",
@@ -173,7 +173,7 @@ tabPanel("Upload",
                                             ".tsv"
                                           )
                                 ),
-                                fileInput("annotfile.countTi", "Annotation file (required):",
+                                fileInput("annotfile.countTi", "Sample information file (required):",
                                           accept = c(
                                             "text/csv",
                                             "text/comma-separated-values",
@@ -214,7 +214,7 @@ tabPanel("Upload",
                                             ".tsv"
                                           )
                                 ),
-                                fileInput("annotfile.ps", "Annotation file (required):",
+                                fileInput("annotfile.ps", "Sample information file (required):",
                                           accept = c(
                                             "text/csv",
                                             "text/comma-separated-values",
@@ -254,7 +254,7 @@ tabPanel("Upload",
                                 h4("Note: please click \"open in browser\" for enabling functions like multiple files upload."),
                                 helpText("Counts Table: column names must be sample name"),
                                 DT::dataTableOutput("contents.count"),
-                                helpText("Annotation table"),
+                                helpText("Sample information table"),
                                 DT::dataTableOutput("contents.meta")
                ),
                conditionalPanel(condition = "input.uploadChoiceAdv === 'countTi'",
@@ -266,7 +266,7 @@ tabPanel("Upload",
                                 
                                 DT::dataTableOutput("contents.count.2Ti"),
                                 
-                                helpText("Annotation table: "),
+                                helpText("Sample information table: "),
                                 helpText("1. Row names must be sample name"),
                                 helpText("2. The first row must sample attribute labels"),
                                 
@@ -278,7 +278,7 @@ tabPanel("Upload",
                                  to add sample metadate into .biom file if sample metadata is missing.'),
                                 helpText("Counts Table"),
                                 DT::dataTableOutput("biom.count"),
-                                helpText("Annotation table"),
+                                helpText("Sample information table"),
                                 DT::dataTableOutput("biom.meta"),
                                 helpText("Classification table"),
                                 DT::dataTableOutput("biom.tax")
@@ -323,7 +323,7 @@ tabPanel("Upload",
                                 helpText("2. The first column must be classification ID, like ASV ID, gene calls, COG20 categories, KEGG pathways, MAG ID, feature ID etc."),
                                 
                                 DT::dataTableOutput("contents.taxonomy"),
-                                helpText("Annotation table: "),
+                                helpText("Sample information table: "),
                                 helpText("1. Row names must be sample name"),
                                 helpText("2. The first row must sample attribute labels"),
                                 helpText("3. Add all variables needed for your analysis"),
