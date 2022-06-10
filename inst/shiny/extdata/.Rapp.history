@@ -1,3 +1,0 @@
-load("/Users/bfg522/Dropbox/Arbejde/QuickFixR/inst/extdata/NWS_MAG_Profiling.rds")
-Y
-load("/Users/bfg522/Dropbox/Arbejde/QuickFixR/shiny/extdata/animalcules.rds")

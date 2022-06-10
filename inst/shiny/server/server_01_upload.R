@@ -1,7 +1,7 @@
 # A notification ID
 # id <- NULL
 
-url <- a("website!", href="")
+url <- a("website!", href="https://github.com/JacobAgerbo/QuickFixR")
 output$tab <- renderUI({
   tagList("Need help? Check the docs on our", url)
 })
@@ -112,7 +112,7 @@ updateCovariate <- function(session){
   # Testing
   
   # Prevalence Testing
-  updateSelectInput(session, "prev_variable", choices = covariates)
+  updateSelectInput(session, "prev_variable", choices = covariates.two.levels)
   
   # Differential
   updateSelectInput(session, "input_diff_condition", choices = covariates.two.levels)
@@ -127,6 +127,13 @@ updateCovariate <- function(session){
   
   # Biomarker
   updateSelectInput(session, "select_target_condition_biomarker", choices = covariates.two.levels)
+  
+  # Network Analysis
+  
+  # Community Network
+  updateSelectInput(session, "NW_color", choices = c("None", covariates.colorbar))
+  updateSelectInput(session, "NW_shape", choices = c("None", covariates.colorbar))
+  updateSelectInput(session, "NW_label", choices = c("None", covariates))
   
 }
 
