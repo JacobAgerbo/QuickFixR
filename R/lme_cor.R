@@ -15,7 +15,7 @@
 #' p <- lme_cor(df,
 #'                     tax_level='Genus',
 #'                     feature = 'Mycoplasma'
-#'                     variable='Weight_g',
+#'                     exp_var='Weight_g',
 #'                     random_var="Location",
 #'                     datatype = "relabu")
 #' p
