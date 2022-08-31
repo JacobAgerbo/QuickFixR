@@ -57,6 +57,9 @@ https://sourceforge.net/projects/mcmc-jags/
 **WINDOWS**
 https://sourceforge.net/projects/mcmc-jags/files/JAGS/4.x/Windows/
 
+**CONDA**
+conda install -c conda-forge jags
+
 It can be a good idea to start with this line, fist :)
 
 
