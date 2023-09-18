@@ -1,7 +1,7 @@
 # QuickFixR
 Hello world! Hang in there!
 
-Here I present QuickFixR. A small shiny based R packages, which makes R interactive and more user friendly. The package is trying to help researchers working on any **'Omics based data**, which are not super happy about coding at all. Within this packages it is possible to get an overview of data.
+Here I present QuickFixR. A small shiny based R packages, which makes R interactive and more user friendly. The package is trying to help researchers working on any **'Omics based data**, which are not super happy about coding at all. Within this packages it is possible to get an overview of data. **...and actually get some great insigths in your data!**
 
 ## Introduction to dependencies
 
@@ -24,7 +24,8 @@ See examples below.
 
 ## Main Features in QuickFixR
 
-This package is mainly combining already established methods from really nice pacakages like _animalcules_, _lmerTest_ and _boral_. I am only trying to provide a more user-friendly approach. These packages should be fully credited for their amazing work!
+This package is mainly combining already established methods from really nice pacakages like _animalcules_, _lmerTest_ and _boral_. I am only trying to provide a more user-friendly approach. These packages should be fully credited for their amazing work, which can be found [**here**](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-021-01013-0), [**here**](https://www.jstatsoft.org/article/view/v082i13), and [**here**](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12514).
+
 
 • Uploading of your data
 
@@ -44,7 +45,7 @@ This package is mainly combining already established methods from really nice pa
 
 • Community analysis, using networks
 
-## Installation
+# Installation
 
 This packages requires quite some packages to run, since it is a rather extensive framework. Installing them can be a bugger.
 Installation of this package will require R Version >4.1.0.
