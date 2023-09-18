@@ -26,7 +26,7 @@ See examples below.
 
 This package is mainly combining already established methods from really nice pacakages like _animalcules_, _lmerTest_ and _boral_. I am only trying to provide a more user-friendly approach. These packages should be fully credited for their amazing work, which can be found [**here**](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-021-01013-0), [**here**](https://www.jstatsoft.org/article/view/v082i13), and [**here**](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12514).
 
-
+**Now to the features!**
 • Uploading of your data
 
 • Getting an overview of your data and metadata
@@ -50,19 +50,23 @@ This package is mainly combining already established methods from really nice pa
 This packages requires quite some packages to run, since it is a rather extensive framework. Installing them can be a bugger.
 Installation of this package will require R Version >4.1.0.
 
-First you have to download JAGS for bayesian modelling, because BORAL and rjags is depedent on this. Please find a MAC and WINDOWS solution below.
+First you have to download JAGS for bayesian modelling, because BORAL and rjags is depedent on this. Please find a MAC, WINDOWS, and conda solution below.
 
 **MAC**
+
 https://sourceforge.net/projects/mcmc-jags/
 
 **WINDOWS**
+
 https://sourceforge.net/projects/mcmc-jags/files/JAGS/4.x/Windows/
 
 **CONDA**
+
+```{bash}
 conda install -c conda-forge jags
+```
 
-It can be a good idea to start with this line, fist :)
-
+Furthermore, It can be a good idea to start with this line, fist :)
 
 ```{r Installation of dependencies, include = FALSE}   
 dependencies <- c("devtools","BiocManager","shiny","shinyjs",
