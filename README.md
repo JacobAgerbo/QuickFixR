@@ -111,9 +111,13 @@ I base this tutorial on conda and therefore miniconda should be installed prior 
 
 First thing we need to do is, creating a conda environment. 
 
-For this you will a config file with all dependencies. This file has already been made and can be downloaded [**here**](https://github.com/EBI-Metagenomics/holofood-course/blob/main/sessions/Metabolomics/QuickFixR.yml). It is called **QuickFixR.yml**.
+For this you will a config file with all dependencies. This file has already been made and can be downloaded [**here**](https://github.com/JacobAgerbo/QuickFixR/blob/main/QuickFixR.yml). It is called **QuickFixR.yml**.
 
-
+```
+git clone https://github.com/JacobAgerbo/QuickFixR.git # Download the QuickFixR repo
+cd QuickFixR # Go into it.
+```
+Now create a virtual conda environment based on on predefine requirements
 ```
 conda env create -f QuickFixR.yml
 ```
