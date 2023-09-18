@@ -106,18 +106,16 @@ devtools::install_github("JacobAgerbo/QuickFixR")
 
 ## Installation of conda environment and dependencies for QuickFixR
 
-*Please find more info on: https://github.com/JacobAgerbo/QuickFixR*
-
 I base this tutorial on conda and therefore miniconda should be installed prior the tutorial, please see link:
 *https://docs.conda.io/en/latest/miniconda.html*
 
 First thing we need to do is, creating a conda environment. 
 
-For this you will a config file with all dependencies. This file has already been made and can be downloaded [**here**](https://github.com/EBI-Metagenomics/holofood-course/blob/main/sessions/Metabolomics/Metabolomics.yml). It is called **Metabolomics.yml**.
+For this you will a config file with all dependencies. This file has already been made and can be downloaded [**here**](https://github.com/EBI-Metagenomics/holofood-course/blob/main/sessions/Metabolomics/QuickFixR.yml). It is called **QuickFixR.yml**.
 
 
 ```
-conda env create -f Metabolomics.yml
+conda env create -f QuickFixR.yml
 ```
 
 This environment has installed R (>4.1) with several packages, but a few more is needed. 
@@ -126,7 +124,7 @@ These packages are not yet to be found on condas channels and therefore we will 
 Launch conda environment and subsequently R, by typing:
 
 ```
-conda activate Metabolomics #activating the environment
+conda activate QuickFixR #activating the environment
 R #starting R
 ```
 
